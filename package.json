@@ -1,6 +1,6 @@
 {
   "name": "gamr",
-  "version": "2.0",
+  "version": "0.2.0",
   "description": "Second attempt at building gamr",
   "repository": "https://github.com/alan-jordan/gamr-v2",
   "main": "server/index.js",
@@ -26,7 +26,7 @@
       "stage-0"
     ]
   },
-  "author": "EDA",
+  "author": "Alan Jordan",
   "license": "ISC",
   "devDependencies": {
     "ava": "^0.19.1",
@@ -39,6 +39,7 @@
     "enzyme": "^2.8.2",
     "jsdom": "^11.0.0",
     "jsx-loader": "^0.13.2",
+    "nock": "^9.0.13",
     "nodemon": "^1.11.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
