@@ -10,8 +10,19 @@ test('getUsers gets all users', t => {
   return usersDb.getUsers(t.context.connection)
     .then((result) => {
       return new Promise((resolve, reject) => {
-        var actual = result.length
-        t.is(actual, 3)
+        t.is(result.length, 2)
+        resolve()
+      })
+    })
+})
+
+test('getUserById gets a user by its ID', t=> {
+  return usersDb.getUserById(1, t.context.connection)
+    .then((result) => {
+      return new Promise((resolve, reject) => {
+        console.log(result);
+        t.is(result.user_username, 'eljordy')
+        t.is(result.user_email, 'alanpjordan@gmail.com')
         resolve()
       })
     })
