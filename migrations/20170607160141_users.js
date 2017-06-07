@@ -8,6 +8,7 @@ exports.up = function (knex, Promise) {
     table.string('user_first_name')
     table.string('user_surname')
     table.date('user_dob')
+    table.binary('user_password')
     table.date('user_date_registered').defaultTo(knex.fn.now())
   })
 }

@@ -3,7 +3,8 @@ var express = require('express')
 var bodyParser = require('body-parser')
 const cors = require('cors')
 
-var users = require('./routes/users')
+var api = require('./routes/index')
+var usersDb = './db/users'
 
 const corsOptions = {
   origin: true,
@@ -12,12 +13,15 @@ const corsOptions = {
   credentials: true
 }
 
-var server = express()
-server.use(cors(corsOptions))
+var app = express()
+app.use(cors(corsOptions))
 
-server.use(bodyParser.json())
-server.use(express.static(path.join(__dirname, '../public')))
+app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, '../public')))
 
-server.use('/api/v1/users', users)
+app.use('/api/v1', api)
 
-module.exports = server
+module.exports = (connection) => {
+  app.set('connection', connection)
+  return app
+}
