@@ -5,7 +5,6 @@ configureDatabase(test)
 
 var usersDb = require('../../server/db/users')
 
-
 test('getUsers gets all users', t => {
   return usersDb.getUsers(t.context.connection)
     .then((result) => {
@@ -16,7 +15,7 @@ test('getUsers gets all users', t => {
     })
 })
 
-test('getUserById gets a user by its ID', t=> {
+test('getUserById gets a user by its ID', t => {
   return usersDb.getUserById(1, t.context.connection)
     .then((result) => {
       return new Promise((resolve, reject) => {
