@@ -12,4 +12,15 @@ router.get('/users', (req, res) => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })
+
+router.get('/users/:id', (req, res) => {
+  usersDb.getUserById(req.params.id, req.app.get('connection'))
+    .then(function (user) {
+      res.json(user)
+    })
+    .catch(function (err) {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+})
+
 module.exports = router
