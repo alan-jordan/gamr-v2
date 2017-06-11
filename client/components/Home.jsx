@@ -1,4 +1,6 @@
 import React from 'react'
+import FrontPageContainer from '../containers/FrontPageContainer'
+import NewGamrs from './NewGamrs'
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -12,14 +14,14 @@ export default class Home extends React.Component {
     return (
       <div className='frontPage'>
         <div className='intro'>
-          <h2>Welcome to gamr. Discover new games, and track your collection.</h2>
+          <div className='introText'>
+            <h2>Discover new games.</h2>
+            <h2>Track your collection.</h2>
+            <h2>Track time spent.</h2>
+            <h2>Connect with other gamrs.</h2>
+          </div>
         </div>
-        <div className='newGamrs'>
-          <ul>
-            <li>gamr 1</li>
-            <li>gamr 2</li>
-          </ul>
-        </div>
+        { <FrontPageContainer /> }
       </div>
     )
   }

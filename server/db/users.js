@@ -10,6 +10,9 @@ function getUserById (id, connection) {
     .first()
 }
 
+function getNumUsers(num, connection) {
+  return connection('users').limit(num).orderBy('user_date_registered', 'desc')
+}
 // function checkPassword(plainTextPassword, hashedPassword) {
 //   return bcrypt.compare(plainTextPassword, hashedPassword)
 //     .then(res => {
@@ -20,6 +23,7 @@ function getUserById (id, connection) {
 
 module.exports = {
   getUsers,
-  getUserById
+  getUserById,
+  getNumUsers
   // checkPassword
 }

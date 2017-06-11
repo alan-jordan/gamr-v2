@@ -1,3 +1,36 @@
 body {
-  
+  font-family: 'Roboto', sans-serif;
+  background-color: #00171F;
+  color: #007EA7;
+}
+.colors {
+  /*
+  white: #FFFFFF;
+  richblack: #00171F;
+  prussian-blue: #003459
+  cerulean: #007EA7;
+  vivid-cerulean: 00A8E8;
+  */
+}
+.header {
+
+  padding: 1vh;
+}
+
+.intro {
+   background-image: url('/images/site/frontPageCollage.jpg');
+   color: white;
+   height: 60vh;
+}
+
+.introText {
+  padding: 10vh;
+}
+
+.footer {
+  padding: 1vh;
+  border-top: solid #007EA7;
+  color: white;
+  background-color: #003459;
+  height: 10vh;
 }

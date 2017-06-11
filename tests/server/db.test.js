@@ -25,3 +25,13 @@ test('getUserById gets a user by its ID', t => {
       })
     })
 })
+
+test('getNumUsers gets 2 gamrs', t => {
+  return usersDb.getNumUsers(2, t.context.connection)
+    .then((result) => {
+      return new Promise((resolve, reject) => {
+        t.is(result.length, 2)
+        resolve()
+      })
+    })
+})
