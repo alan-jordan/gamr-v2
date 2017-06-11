@@ -1,11 +1,27 @@
 import React from 'react'
+import {HashRouter as Router, Route} from 'react-router-dom'
 
 import Header from './Header'
+import Home from './Home'
+import Footer from './Footer'
 
-const App = () => (
-  <div className='app-container'>
-    <Header />
-  </div>
-)
+export default class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
 
-export default App
+    }
+  }
+
+  render() {
+    return (
+      <Router>
+        <div className="app-container">
+          <Header />
+          <Route path ='/' exact={true} component = {Home} />
+          <Footer />
+        </div>
+      </Router>
+    )
+  }
+}
