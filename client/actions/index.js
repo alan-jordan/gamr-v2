@@ -1,9 +1,9 @@
 import request from 'superagent'
 
-export const receiveNewGamrs = (gamrs) => {
+export const receiveNewUsers = (users) => {
   return {
     type: 'RECEIVE_NEW_USERS',
-    gamrs: gamrs.map(gamr => gamr)
+    users: users.map(user => user)
   }
 }
 
@@ -14,12 +14,12 @@ export const throwError = (message) => {
   }
 }
 
-export const fetchLatestGamrs = () => {
+export const fetchLatestUsers = () => {
   return (dispatch) => {
     request
       .get('/api/v1/latestusers')
       .end((err, res) => {
-        err ? dispatch(throwError(err.message)) : dispatch(receiveNewGamrs(res.body))
+        err ? dispatch(throwError(err.message)) : dispatch(receiveNewUsers(res.body))
       })
   }
 }

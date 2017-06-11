@@ -1,12 +1,10 @@
 import React from 'react'
 import FrontPageContainer from '../containers/FrontPageContainer'
-import NewGamrs from './NewGamrs'
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
     }
   }
 

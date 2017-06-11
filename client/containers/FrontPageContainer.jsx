@@ -1,24 +1,24 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import NewGamrs from '../components/NewGamrs'
-import {fetchLatestGamrs} from '../actions/'
-import * as api from '../api'
+import NewUsers from '../components/NewUsers'
+import {fetchLatestUsers} from '../actions/'
 
 class FrontPageContainer extends React.Component {
   componentDidMount () {
-    this.props.dispatch(fetchLatestGamrs())
+    this.props.dispatch(fetchLatestUsers())
   }
+
   render () {
     return (
-      <NewGamrs newGamrs={this.props.newGamrs}/>
+      <NewUsers users={this.props.users}/>
     )
   }
 }
 
 function mapStateToProps (state) {
   return {
-    newGamrs : state.newGamrs
+    users : state.users
   }
 }
 
