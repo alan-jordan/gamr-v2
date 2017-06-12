@@ -1,5 +1,5 @@
 
-exports.up = function(knex, Promise) {
+exports.up = function (knex, Promise) {
   return knex.schema.createTable('user_games', function (table) {
     table.increments('id').primary()
     table.integer('user_id')
@@ -8,8 +8,8 @@ exports.up = function(knex, Promise) {
     table.integer('user_game_system_id')
     table.string('user_game_format') // Physical or digital
   })
-};
+}
 
-exports.down = function(knex, Promise) {
+exports.down = function (knex, Promise) {
   return knex.schema.dropTable('user_games')
-};
+}

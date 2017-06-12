@@ -10,7 +10,7 @@ function getUserById (id, connection) {
     .first()
 }
 
-function getNumUsers(num, connection) {
+function getNumUsers (num, connection) {
   return connection('users').limit(num).orderBy('user_date_registered', 'desc')
 }
 // function checkPassword(plainTextPassword, hashedPassword) {

@@ -12,10 +12,9 @@ test('Container class exists', t => {
   t.is(wrapper.find('.header').exists(), true)
 })
 
-test('intro page rendering right', t => {
+test.skip('intro page rendering right', t => {
   const wrapper = mount(<App />)
-  const Home = wrapper.find(Home)
-  console.log(Home);
+  // const Home = wrapper.find(Home)
   t.is(wrapper.find('.intro').exists(), true)
   // t.is(Home.exists(), true)
 })

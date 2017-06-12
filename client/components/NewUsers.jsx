@@ -1,8 +1,7 @@
 import React from 'react'
 
 const NewUsers = (props) => {
-
-  function renderUsers() {
+  function renderUsers () {
     return props.users.map(user => {
       return <li><a href='#'>{`${user.user_username}`}</a></li>
     })

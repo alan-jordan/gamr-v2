@@ -6,7 +6,6 @@ var createServer = require('../../server/server')
 var configureDatabase = require('./helpers/database-config')
 configureDatabase(test, createServer)
 
-
 test('GET /users/', t => {
   return request(t.context.app)
     .get('/api/v1/users')

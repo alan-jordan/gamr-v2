@@ -2,13 +2,13 @@ import React from 'react'
 import FrontPageContainer from '../containers/FrontPageContainer'
 
 export default class Home extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
     }
   }
 
-  render() {
+  render () {
     return (
       <div className='frontPage'>
         <div className='intro'>

@@ -11,14 +11,14 @@ class FrontPageContainer extends React.Component {
 
   render () {
     return (
-      <NewUsers users={this.props.users}/>
+      <NewUsers users={this.props.users} />
     )
   }
 }
 
 function mapStateToProps (state) {
   return {
-    users : state.users
+    users: state.users
   }
 }
 

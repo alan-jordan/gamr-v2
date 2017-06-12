@@ -1,4 +1,4 @@
-exports.seed = function(knex, Promise) {
+exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
   return knex('user_systems').del()
     .then(function () {
@@ -22,6 +22,6 @@ exports.seed = function(knex, Promise) {
           igdb_system_id: 3,
           user_system_date_bought: '2017-03-17'
         }
-      ]);
-    });
-};
+      ])
+    })
+}

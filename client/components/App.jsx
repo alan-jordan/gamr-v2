@@ -6,19 +6,19 @@ import Home from './Home'
 import Footer from './Footer'
 
 export default class App extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
 
     }
   }
 
-  render() {
+  render () {
     return (
       <Router>
-        <div className="app-container">
+        <div className='app-container'>
           <Header />
-          <Route path ='/' exact={true} component = {Home} />
+          <Route path='/' exact component={Home} />
           <Footer />
         </div>
       </Router>

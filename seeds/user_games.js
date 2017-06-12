@@ -1,4 +1,4 @@
-exports.seed = function(knex, Promise) {
+exports.seed = function (knex, Promise) {
   return knex('user_games').del()
     .then(function () {
       return knex('user_games').insert([
@@ -42,6 +42,6 @@ exports.seed = function(knex, Promise) {
           user_game_system_id: 2,
           user_game_format: 'physical'
         }
-      ]);
-    });
-};
+      ])
+    })
+}
