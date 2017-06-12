@@ -8,7 +8,7 @@
     "knex": "knex",
     "dev": "nodemon --watch server server/index & webpack --watch",
     "start": "node server/index",
-    "test": "ava  -v 'tests/**/*.test.js'",
+    "test": "standard | snazzy & ava  -v 'tests/**/*.test.js'",
     "watch": "nodemon -e js,jsx -x npm test",
     "h:deploy": "git push heroku master",
     "h:migrate": "heroku run knex migrate:latest",
