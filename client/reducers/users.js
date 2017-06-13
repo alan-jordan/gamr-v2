@@ -1,4 +1,4 @@
-function users (state = [], action) {
+function users (state = [], action = {}) {
   switch (action.type) {
     case 'RECEIVE_NEW_USERS':
       return [...action.users]

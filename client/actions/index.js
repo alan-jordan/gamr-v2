@@ -3,7 +3,7 @@ import request from 'superagent'
 export const receiveNewUsers = (users) => {
   return {
     type: 'RECEIVE_NEW_USERS',
-    users: users.map(user => user)
+    users: users
   }
 }
 

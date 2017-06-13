@@ -7,7 +7,7 @@ import App from '../../client/components/App'
 
 App.prototype.componentDidMount = () => {}
 
-test('Container class exists', t => {
+test.skip('Container class exists', t => {
   const wrapper = mount(<App />)
   t.is(wrapper.find('.header').exists(), true)
 })
