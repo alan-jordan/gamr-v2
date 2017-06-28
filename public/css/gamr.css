@@ -3,6 +3,9 @@ body {
   background-color: #00171F;
   color: #007EA7;
 }
+#app {
+  background-color: #00171F;
+}
 .colors {
   /*
   white: #FFFFFF;
@@ -25,7 +28,9 @@ body {
 .introText {
   padding: 10vh;
 }
-
+.newUsers {
+  background-color: #00171F;
+}
 .newUsers li {
   list-style-type: none;
   display: inline;
@@ -39,3 +44,32 @@ body {
   background-color: #003459;
   height: 10vh;
 }
+
+.media
+ {
+     /*box-shadow:0px 0px 4px -2px #000;*/
+     margin: 20px 0;
+     padding:30px;
+ }
+ .dp
+ {
+     border:10px solid #eee;
+     transition: all 0.2s ease-in-out;
+     width: 100px;
+     height:100px;
+ }
+ .dp:hover
+ {
+     border:2px solid #eee;
+     transform:rotate(360deg);
+     -ms-transform:rotate(360deg);
+     -webkit-transform:rotate(360deg);
+     /*-webkit-font-smoothing:antialiased;*/
+ }
+ .userBox {
+   margin:8px auto;
+ }
+ .media-heading {
+   font-size: 24pt;
+   color: white;
+ }

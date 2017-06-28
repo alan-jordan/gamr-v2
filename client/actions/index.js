@@ -10,7 +10,7 @@ export const receiveNewUsers = (users) => {
 export const throwError = (message) => {
   return {
     type: 'THROW_ERROR',
-    message
+    err: message
   }
 }
 
@@ -20,6 +20,23 @@ export const fetchLatestUsers = () => {
       .get('/api/v1/latestusers')
       .end((err, res) => {
         err ? dispatch(throwError(err.message)) : dispatch(receiveNewUsers(res.body))
+      })
+  }
+}
+
+export const setUser = (user) => {
+  return {
+    type: 'SET_USER',
+    user: user
+  }
+}
+
+export const fetchUser = (userId) => {
+  return (dispatch) => {
+    request
+      .get(`/api/v1/users/${userId}`)
+      .end((err, res) => {
+        err ? dispatch(throwError(err.message)) : dispatch(setUser(res.body))
       })
   }
 }
