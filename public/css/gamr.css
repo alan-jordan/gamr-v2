@@ -13,7 +13,6 @@ body {
   */
 }
 .header {
-
   padding: 1vh;
 }
 
@@ -25,6 +24,12 @@ body {
 
 .introText {
   padding: 10vh;
+}
+
+.newUsers li {
+  list-style-type: none;
+  display: inline;
+  margin: 1vh;
 }
 
 .footer {

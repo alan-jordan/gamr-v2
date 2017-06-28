@@ -4,7 +4,7 @@ const NewUsers = (props) => {
   function renderUsers () {
     return props.users.map((user, i) => {
       return (
-        <li key={i}><a href='#'>{`${user.user_username}`}</a></li>
+        <li key={i}><a href={`/users/${user.id}/library`}>{`${user.user_username}`}</a></li>
       )
     })
   }
