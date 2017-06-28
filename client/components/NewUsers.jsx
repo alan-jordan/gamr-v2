@@ -10,9 +10,9 @@ const NewUsers = (props) => {
   }
 
   return (
-    <div className='newUsers'>
+    <ul className='newUsers'>
       {renderUsers()}
-    </div>
+    </ul>
   )
 }
 

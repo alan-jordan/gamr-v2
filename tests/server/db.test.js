@@ -9,7 +9,7 @@ test('getUsers gets all users', t => {
   return usersDb.getUsers(t.context.connection)
     .then((result) => {
       return new Promise((resolve, reject) => {
-        t.is(result.length, 2)
+        t.is(result.length, 4)
         resolve()
       })
     })

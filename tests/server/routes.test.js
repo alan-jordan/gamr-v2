@@ -12,7 +12,7 @@ test('GET /users/', t => {
     .expect(200)
     .then((result) => {
       return new Promise((resolve, reject) => {
-        t.is(result.body.length, 2)
+        t.is(result.body.length, 4)
         resolve()
       })
     })
@@ -36,7 +36,7 @@ test('Get /latestusers', t => {
     .expect(200)
     .then((result) => {
       return new Promise((resolve, reject) => {
-        t.is(result.body.length, 2)
+        t.is(result.body.length, 3)
         resolve()
       })
     })

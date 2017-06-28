@@ -24,7 +24,7 @@ router.get('/users/:id', (req, res) => {
 })
 
 router.get('/latestusers', (req, res) => {
-  usersDb.getNumUsers(2, req.app.get('connection'))
+  usersDb.getNumUsers(3, req.app.get('connection'))
     .then((users) => {
       res.json(users)
     })
