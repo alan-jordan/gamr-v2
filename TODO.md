@@ -11,6 +11,7 @@
 # User page
 * A stats page for games owned on systems
 * Ability to add/remove game systems
+* Cloudinary to allow users to upload images
 
 # Auth
 * Passport
@@ -25,3 +26,6 @@
 * Steam? XBL? PSN? Nintendo? Origin? GoG? Battle.net?
 * Log time spent on a game.
 * Use D3 for stats
+
+# Testing
+* Test coverage of JSX files
