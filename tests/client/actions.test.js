@@ -2,6 +2,7 @@ import test from 'ava'
 import nock from 'nock'
 
 import * as action from '../../client/actions'
+const url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
 
 test.cb('fetchLatestUsers', t => {
   nock('http://localhost:80')
@@ -59,4 +60,12 @@ test('setUser returns a user Object', t => {
     user: {id: 1}
   }
   t.deepEqual(action.setUser({id: 1}), expectedAction)
+})
+
+test('getGameDetails', t => {
+  nock(url)
+    .get('/games/16?fields=*')
+    .set('X-Mashape-Key', process.env.MASHAPEKEY)
+    .set('Accept', 'application/json')
+    
 })

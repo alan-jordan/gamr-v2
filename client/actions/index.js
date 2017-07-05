@@ -1,5 +1,7 @@
 import request from 'superagent'
 
+const url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
+
 export const receiveNewUsers = (users) => {
   return {
     type: 'RECEIVE_NEW_USERS',
@@ -37,6 +39,18 @@ export const fetchUser = (userId) => {
       .get(`/api/v1/users/${userId}`)
       .end((err, res) => {
         err ? dispatch(throwError(err.message)) : dispatch(setUser(res.body))
+      })
+  }
+}
+
+export const getGameDetails = (gameId) => {
+  return (dispatch) => {
+    request
+      .get(`${url}/games/${gameId}?fields=*`)
+      .set('X-Mashape-Key', process.env.MASHAPEKEY)
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+        err ? dispatch(throwError(err.message)) : dispatch(setGameDetails(res.body))
       })
   }
 }
