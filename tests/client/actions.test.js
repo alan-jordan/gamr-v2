@@ -2,6 +2,8 @@ import test from 'ava'
 import nock from 'nock'
 
 import * as action from '../../client/actions'
+import gameExample from './helpers/gameExample'
+
 const url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
 
 test.cb('fetchLatestUsers', t => {
@@ -67,5 +69,9 @@ test('getGameDetails', t => {
     .get('/games/16?fields=*')
     .set('X-Mashape-Key', process.env.MASHAPEKEY)
     .set('Accept', 'application/json')
-    
+    .reply(200, gameExample)
+
+  action.getGameDetails(16)((actual) => {
+    console.log(actual);
+  })
 })
