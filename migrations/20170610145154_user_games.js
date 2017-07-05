@@ -6,7 +6,7 @@ exports.up = function (knex, Promise) {
     table.integer('igdb_game_id')
     table.date('user_game_date_bought')
     table.integer('user_game_system_id')
-    table.string('user_game_format') // Physical or digital
+    table.integer('user_game_format') // Physical or digital
   })
 }
 

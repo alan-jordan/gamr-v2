@@ -8,7 +8,7 @@ exports.seed = function (knex, Promise) {
           igdb_game_id: 16,
           user_game_date_bought: '2017-04-22',
           user_game_system_id: 2,
-          user_game_format: 'Physical'
+          user_game_format: 1 // physical
         },
         {
           id: 2,
@@ -16,7 +16,7 @@ exports.seed = function (knex, Promise) {
           igdb_game_id: 17,
           user_game_date_bought: '2016-04-22',
           user_game_system_id: 2,
-          user_game_format: 'Digital'
+          user_game_format: 2 // digital
         },
         {
           id: 3,
@@ -24,7 +24,7 @@ exports.seed = function (knex, Promise) {
           igdb_game_id: 18,
           user_game_date_bought: '2015-04-22',
           user_game_system_id: 2,
-          user_game_format: 'Digital'
+          user_game_format: 2
         },
         {
           id: 4,
@@ -32,7 +32,7 @@ exports.seed = function (knex, Promise) {
           igdb_game_id: 19,
           user_game_date_bought: '2014-04-22',
           user_game_system_id: 2,
-          user_game_format: 'Physical'
+          user_game_format: 1
         },
         {
           id: 5,
@@ -40,7 +40,7 @@ exports.seed = function (knex, Promise) {
           igdb_game_id: 20,
           user_game_date_bought: '2013-04-22',
           user_game_system_id: 2,
-          user_game_format: 'physical'
+          user_game_format: 1
         }
       ])
     })
