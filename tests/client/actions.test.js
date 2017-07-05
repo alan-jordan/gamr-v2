@@ -2,7 +2,7 @@ import test from 'ava'
 import nock from 'nock'
 
 import * as action from '../../client/actions'
-import gameExample from './helpers/gameExample'
+import * as gameExample from './helpers/gameExample'
 
 const url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
 
@@ -64,14 +64,15 @@ test('setUser returns a user Object', t => {
   t.deepEqual(action.setUser({id: 1}), expectedAction)
 })
 
-test('getGameDetails', t => {
+test.cb('getGameDetails', t => {
   nock(url)
     .get('/games/16?fields=*')
-    .set('X-Mashape-Key', process.env.MASHAPEKEY)
-    .set('Accept', 'application/json')
-    .reply(200, gameExample)
+    .reply(200, gameExample.game)
 
   action.getGameDetails(16)((actual) => {
-    console.log(actual);
+    t.is(actual.type, 'SET_GAME')
+    t.is(actual.game[0].name, 'Fallout: New Vegas')
+    nock.cleanAll()
+    t.end()
   })
 })

@@ -1,4 +1,4 @@
-[
+export const game = [
   { id: 16,
     name: 'Fallout: New Vegas',
     slug: 'fallout-new-vegas',

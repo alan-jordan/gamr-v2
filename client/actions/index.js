@@ -1,5 +1,7 @@
 import request from 'superagent'
 
+require('dotenv').config()
+
 const url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
 
 export const receiveNewUsers = (users) => {
@@ -40,6 +42,13 @@ export const fetchUser = (userId) => {
       .end((err, res) => {
         err ? dispatch(throwError(err.message)) : dispatch(setUser(res.body))
       })
+  }
+}
+
+export const setGameDetails = (game) => {
+  return {
+    type: 'SET_GAME',
+    game: game
   }
 }
 
