@@ -1,3 +1,5 @@
+TravisCI Status - [![Build Status](https://travis-ci.org/alan-jordan/gamr-v2.svg?branch=master)](https://travis-ci.org/alan-jordan/gamr-v2)
+
 # gamr
 I built gamr as part of my personal project while studying at Enspiral Devacademy. I enjoyed it and want to build on it as I learn new technologies.
 
