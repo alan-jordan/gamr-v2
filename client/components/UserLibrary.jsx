@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 
 
 const UserLibrary = (props) => {
-  console.log(props);
   return (
     <div></div>
   )

@@ -50,6 +50,7 @@
     "jsx-loader": "^0.13.2",
     "nock": "^9.0.13",
     "nodemon": "^1.11.0",
+    "nyc": "^11.0.3",
     "react-test-renderer": "^15.5.4",
     "supertest": "^3.0.0",
     "webpack": "^2.3.3",
