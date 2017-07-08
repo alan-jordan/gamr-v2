@@ -1,8 +1,9 @@
 import test from 'ava'
 
 import userReducer from '../../client/reducers/users'
-import {receiveNewUsers} from '../../client/actions'
+import {receiveNewUsers, setUserGames} from '../../client/actions'
 import gameReducer from '../../client/reducers/game'
+import * as userGames from './helpers/userGamesExample'
 
 test('default users is empty array', t => {
   const initialState = userReducer()
@@ -24,6 +25,6 @@ test('default game is an empty object', t => {
 
 test('user games are set', t => {
   const initialState = userReducer()
-  console.log(initialState)
-  )
+  const nextState = userReducer(initialState, setUserGames(userGames.userGames))
+  console.log(nextState);
 })
