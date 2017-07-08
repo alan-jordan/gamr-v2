@@ -4,7 +4,6 @@ var bodyParser = require('body-parser')
 const cors = require('cors')
 
 var api = require('./routes/index')
-var usersDb = './db/users'
 
 const corsOptions = {
   origin: true,
