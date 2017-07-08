@@ -22,6 +22,8 @@ test('default game is an empty object', t => {
   t.is(typeof(initialState), 'object')
 })
 
-// test('user games are set', t => {
-//
-// })
+test('user games are set', t => {
+  const initialState = userReducer()
+  console.log(initialState)
+  )
+})
