@@ -27,6 +27,6 @@ test('default game is an empty object', t => {
 test('user games are set', t => {
   const initialState = userReducer()
   const nextState = userReducer(initialState, setUserGames(userGames.userGames))
-  t.is(nextState.length, 5)
-  t.is(nextState[2].igdb_game_id, 18)
+  t.is(nextState.games.length, 5)
+  t.is(nextState.games[2].igdb_game_id, 18)
 })

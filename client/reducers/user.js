@@ -1,9 +1,15 @@
-function user (state = {}, action = {}) {
+function user (state = {user: {}, games: []}, action = {}) {
   switch (action.type) {
     case 'SET_USER':
-      return action.user
+      return {
+        ...state,
+        user: action.user
+      }
     case 'SET_USER_GAMES':
-      return action.games
+      return {
+        ...state,
+        games: action.games
+      }
     default:
       return state
   }

@@ -1,14 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+
 
 const UserLibrary = (props) => {
-  // getUserGames(props.id) {
-  // }
-
-  // function renderGames() {
-  //     //Needs to be an action to set games on the state.
-  // }
-
+  console.log(props);
   return (
     <div></div>
   )

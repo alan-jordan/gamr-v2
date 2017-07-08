@@ -31,7 +31,7 @@ export const fetchLatestUsers = () => {
 export const setUser = (user) => {
   return {
     type: 'SET_USER',
-    user: user
+    user
   }
 }
 
@@ -77,6 +77,6 @@ export const getUserGames = (userId) => {
 export const setUserGames = (games) => {
   return {
     type: 'SET_USER_GAMES',
-    games: games
+    games
   }
 }

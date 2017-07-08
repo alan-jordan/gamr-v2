@@ -1,13 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {fetchUser} from '../actions/'
+import {fetchUser, getUserGames} from '../actions/'
 import UserLibrary from '../components/UserLibrary'
 import UserInfoLibrary from '../components/UserInfoLibrary'
 
 class UserLibraryContainer extends React.Component {
   componentDidMount () {
     this.props.dispatch(fetchUser(this.props.match.params.id))
+    this.props.dispatch(getUserGames(this.props.match.params.id))
   }
 
   render () {
@@ -22,7 +23,8 @@ class UserLibraryContainer extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    user: state.user
+    user: state.user,
+    games: state.user.games
   }
 }
 
