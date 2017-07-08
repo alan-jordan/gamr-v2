@@ -23,6 +23,16 @@ router.get('/users/:id', (req, res) => {
     })
 })
 
+router.get('/users/:id/games', (req, res) => {
+  usersDb.getUserGames(req.params.id, req.app.get('connection'))
+    .then((games) => {
+      res.json(games)
+    })
+    .catch((err) => {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+})
+
 router.get('/latestusers', (req, res) => {
   usersDb.getNumUsers(3, req.app.get('connection'))
     .then((users) => {

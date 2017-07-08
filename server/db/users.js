@@ -13,17 +13,16 @@ function getUserById (id, connection) {
 function getNumUsers (num, connection) {
   return connection('users').limit(num).orderBy('user_date_registered', 'desc')
 }
-// function checkPassword(plainTextPassword, hashedPassword) {
-//   return bcrypt.compare(plainTextPassword, hashedPassword)
-//     .then(res => {
-//       console.log(res);
-//       return res
-//     })
-// }
+
+function getUserGames (id, connection) {
+  return connection('user_games')
+    .where('user_id', id)
+}
 
 module.exports = {
   getUsers,
   getUserById,
-  getNumUsers
+  getNumUsers,
+  getUserGames
   // checkPassword
 }

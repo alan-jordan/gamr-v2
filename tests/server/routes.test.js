@@ -30,6 +30,18 @@ test('GET /users/:id', t => {
     })
 })
 
+test('GET /users/:id/games', t => {
+  return request(t.context.app)
+    .get('/api/v1/users/1/games')
+    .expect(200)
+    .then((result) => {
+      return new Promise((resolve, reject) => {
+        t.is(result.body.length, 5)
+        resolve()
+      })
+    })
+})
+
 test('Get /latestusers', t => {
   return request(t.context.app)
     .get('/api/v1/latestusers')

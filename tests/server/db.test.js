@@ -35,3 +35,14 @@ test('getNumUsers gets 2 gamrs', t => {
       })
     })
 })
+
+test('getUserGames gets all users games', t => {
+  return usersDb.getUserGames(1, t.context.connection)
+    .then((result) => {
+      return new Promise((resolve, reject) => {
+        t.is(result.length, 5)
+        t.is(result[1].user_game_system_id, 2)
+        resolve()
+      })
+    })
+})
