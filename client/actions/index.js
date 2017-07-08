@@ -63,3 +63,20 @@ export const getGameDetails = (gameId) => {
       })
   }
 }
+
+export const getUserGames = (userId) => {
+  return (dispatch) => {
+    request
+      .get(`/api/v1/users/${userId}/games`)
+      .end((err, res) => {
+        err ? dispatch(throwError(err.message)) : dispatch(setUserGames(res.body))
+      })
+  }
+}
+
+export const setUserGames = (games) => {
+  return {
+    type: 'SET_USER_GAMES',
+    games: games
+  }
+}

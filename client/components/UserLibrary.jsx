@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 const UserLibrary = (props) => {
+  console.log(props);
   // getUserGames(props.id) {
   // }
 
