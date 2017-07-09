@@ -1,8 +1,11 @@
 var express = require('express')
 var router = express.Router()
+var request = require('superagent')
 
 var usersDb = require('../db/users')
-var api = require('../api')
+
+require('dotenv').config()
+var url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
 
 router.get('/users', (req, res) => {
   usersDb.getUsers(req.app.get('connection'))
@@ -45,12 +48,14 @@ router.get('/latestusers', (req, res) => {
 })
 
 router.get('/games/:id', (req, res) => {
-  api.getGame(req.params.id)
-    .then((game) => {
-      res.json(game)
-    })
-    .catch((err) => {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
+  request
+    .get(`${url}/games/${req.params.id}?fields=*`)
+    .set('X-Mashape-Key', process.env.MASHAPEKEY)
+    .set('Accept', 'application/json')
+    .end((error, response) => {
+      error
+      ? res.status(500).send('DATABASE ERROR: ' + error.message)
+      : res.json(response.body)
     })
 })
 
