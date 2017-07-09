@@ -1,7 +1,10 @@
-var test = require('ava')
-var request = require('supertest')
+import test from 'ava'
+import request from 'supertest'
+import nock from 'nock'
 
+import * as gameExample from './helpers/gameExample'
 var createServer = require('../../server/server')
+const url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
 
 var configureDatabase = require('./helpers/database-config')
 configureDatabase(test, createServer)
@@ -49,6 +52,22 @@ test('Get /latestusers', t => {
     .then((result) => {
       return new Promise((resolve, reject) => {
         t.is(result.body.length, 3)
+        resolve()
+      })
+    })
+})
+
+test('/games/:id', t => {
+  let scope = nock(url)
+    .get('/games/16?fields=*')
+    .reply(200, gameExample.game)
+
+  return request(t.context.app)
+    .get('/api/v1/games/16')
+    .expect(200)
+    .then((result) => {
+      return new Promise((resolve, reject) => {
+        scope.done()
         resolve()
       })
     })

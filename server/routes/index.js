@@ -2,6 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 var usersDb = require('../db/users')
+var api = require('../api')
 
 router.get('/users', (req, res) => {
   usersDb.getUsers(req.app.get('connection'))
@@ -39,6 +40,16 @@ router.get('/latestusers', (req, res) => {
       res.json(users)
     })
     .catch(function (err) {
+      res.status(500).send('DATABASE ERROR: ' + err.message)
+    })
+})
+
+router.get('/games/:id', (req, res) => {
+  api.getGame(req.params.id)
+    .then((game) => {
+      res.json(game)
+    })
+    .catch((err) => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
 })
