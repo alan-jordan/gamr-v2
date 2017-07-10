@@ -1,4 +1,4 @@
-function user (state = {user: {}, games: [], gameDetails: []}, action = {}) {
+function user (state = {user: {}, games: []}, action = {}) {
   switch (action.type) {
     case 'SET_USER':
       return {
@@ -9,12 +9,6 @@ function user (state = {user: {}, games: [], gameDetails: []}, action = {}) {
       return {
         ...state,
         games: action.games
-      }
-    case 'SET_USER_GAME_DETAILS':
-      let gameDetail = state.gameDetails.concat(action.game)
-      return {
-        ...state,
-        gameDetails: gameDetail
       }
     default:
       return state
