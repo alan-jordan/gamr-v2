@@ -2,9 +2,6 @@ import test from 'ava'
 import nock from 'nock'
 
 import * as action from '../../client/actions'
-import * as gameExample from './helpers/gameExample'
-
-const url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
 
 test.cb('fetchLatestUsers', t => {
   nock('http://localhost:80')
@@ -62,19 +59,6 @@ test('setUser returns a user Object', t => {
     user: {id: 1}
   }
   t.deepEqual(action.setUser({id: 1}), expectedAction)
-})
-
-test.cb('getGameDetails', t => {
-  nock(url)
-    .get('/games/16?fields=*')
-    .reply(200, gameExample.game)
-
-  action.getGameDetails(16)((actual) => {
-    t.is(actual.type, 'SET_GAME')
-    t.is(actual.game[0].name, 'Fallout: New Vegas')
-    nock.cleanAll()
-    t.end()
-  })
 })
 
 test.cb('getUserGames', t => {

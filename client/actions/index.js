@@ -2,8 +2,6 @@ import request from 'superagent'
 
 require('dotenv').config()
 
-const url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
-
 export const receiveNewUsers = (users) => {
   return {
     type: 'RECEIVE_NEW_USERS',
@@ -45,25 +43,6 @@ export const fetchUser = (userId) => {
   }
 }
 
-export const setGameDetails = (game) => {
-  return {
-    type: 'SET_GAME',
-    game: game
-  }
-}
-
-export const getGameDetails = (gameId) => {
-  return (dispatch) => {
-    request
-      .get(`${url}/games/${gameId}?fields=*`)
-      .set('X-Mashape-Key', process.env.MASHAPEKEY)
-      .set('Accept', 'application/json')
-      .end((err, res) => {
-        err ? dispatch(throwError(err.message)) : dispatch(setGameDetails(res.body))
-      })
-  }
-}
-
 export const getUserGames = (userId) => {
   return (dispatch) => {
     request
@@ -77,6 +56,6 @@ export const getUserGames = (userId) => {
 export const setUserGames = (games) => {
   return {
     type: 'SET_USER_GAMES',
-    games
+    games: games
   }
 }
