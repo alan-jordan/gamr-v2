@@ -1,12 +1,31 @@
 import React from 'react'
-import {connect} from 'react-redux'
-
-import {getGameDetails} from '../actions/'
+import request from 'superagent'
 
 class LibraryItem extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      gameId: props.gameId,
+      game: {},
+      error: ''
+    }
+  }
+
+  getGameDetails(gameId) {
+    return new Promise((resolve, reject) => {
+      request
+      .get(`/api/v1/games/${gameId}`)
+      .end((error, response) => {
+        error ? reject(error) : resolve(response.body)
+      })
+    })
+  }
 
   componentDidMount() {
-    this.props.dispatch(getGameDetails(this.props.gameId))
+    this.getGameDetails(this.state.gameId)
+    .then((game) => {
+      this.setState({game: game[0]})
+    })
   }
 
   renderGame(game) {
@@ -15,14 +34,11 @@ class LibraryItem extends React.Component {
 
   render() {
     return (
-      <div>{this.props.game.length > 0 ? this.renderGame(this.props.game[0]) : 'lose'}</div>
+      <div>
+        {this.state.game.name != null ? this.state.game.name : 'Loading'}
+      </div>
     )
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return { game: state.game }
-}
-
-export default connect(mapStateToProps)(LibraryItem)
+export default LibraryItem
