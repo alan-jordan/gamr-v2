@@ -48,7 +48,9 @@ export const getUserGames = (userId) => {
     request
       .get(`/api/v1/users/${userId}/games`)
       .end((err, res) => {
-        err ? dispatch(throwError(err.message)) : dispatch(setUserGames(res.body))
+        err ? dispatch(throwError(err.message))
+        : dispatch(setUserGames(res.body))
+        dispatch(getGameDetails(res.body))
       })
   }
 }
@@ -57,5 +59,24 @@ export const setUserGames = (games) => {
   return {
     type: 'SET_USER_GAMES',
     games: games
+  }
+}
+
+export const getGameDetails = (games) => {
+  return (dispatch) => {
+    games.map((game) => {
+        request
+          .get(`/api/v1/games/${game.igdb_game_id}`)
+          .end((err, res) => {
+            err ? dispatch(throwError(err.message)) : dispatch(setGameDetails(res.body))
+          })
+    })
+  }
+}
+
+export const setGameDetails = (game) => {
+  return {
+    type: 'SET_USER_GAME_DETAILS',
+    game
   }
 }

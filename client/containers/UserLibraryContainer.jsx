@@ -23,8 +23,7 @@ class UserLibraryContainer extends React.Component {
 
 function mapStateToProps (state) {
   return {
-    user: state.user,
-    games: state.user.games
+    user: state.user
   }
 }
 

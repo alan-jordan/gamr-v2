@@ -1,11 +1,7 @@
 import React from 'react'
-import request from 'superagent'
+import {connect} from 'react-redux'
 
 class UserLibrary extends React.Component {
-  componentWillMount () {
-    console.log(this.props);
-  }
-
 
 
   render() {
@@ -13,6 +9,11 @@ class UserLibrary extends React.Component {
       <div></div>
     )
   }
+
 }
 
-export default UserLibrary
+const mapStateToProps = (state) => {
+  return {user: state.user}
+}
+
+export default connect(mapStateToProps)(UserLibrary)
