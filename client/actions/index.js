@@ -61,21 +61,19 @@ export const setUserGames = (games) => {
   }
 }
 
-// export const getGameDetails = (games) => {
-//   return (dispatch) => {
-//     games.map((game) => {
-//         request
-//           .get(`/api/v1/games/${game.igdb_game_id}`)
-//           .end((err, res) => {
-//             err ? dispatch(throwError(err.message)) : dispatch(setGameDetails(res.body))
-//           })
-//     })
-//   }
-// }
-//
-// export const setGameDetails = (game) => {
-//   return {
-//     type: 'SET_USER_GAME_DETAILS',
-//     game
-//   }
-// }
+export const getGameDetails = (game) => {
+  return (dispatch) => {
+    request
+      .get(`/api/v1/games/${game}`)
+      .end((err, res) => {
+        err ? dispatch(throwError(err.message)) : dispatch(setGameDetails(res.body))
+      })
+  }
+}
+
+export const setGameDetails = (game) => {
+  return {
+    type: 'SET_GAME_DETAILS',
+    game
+  }
+}
