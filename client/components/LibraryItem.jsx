@@ -23,6 +23,10 @@ class LibraryItem extends React.Component {
     })
   }
 
+  checkFormat(user_game_format) {
+    return user_game_format == 1 ? 'Physical' : 'Virtual'
+  }
+
   componentDidMount() {
     this.getGameDetails(this.state.gameId)
     .then((game) => {
@@ -43,6 +47,8 @@ class LibraryItem extends React.Component {
             <p>Name: {this.state.game.name}</p>
             <p>Purchased: {moment(this.state.gameStatus.user_game_date_bought).format("dddd, MMMM Do YYYY")}</p>
             <p>Release date: {moment(this.state.game.first_release_date).format("dddd, MMMM Do YYYY")}</p>
+            <p>Owned on:</p>
+            <p>Format: {this.checkFormat(this.state.gameStatus.user_game_format)}</p>
           <a href={`#/games/${this.state.gameStatus.id}`}>Edit status</a>
         </div>
       </div>
