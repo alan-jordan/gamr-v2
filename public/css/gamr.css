@@ -2,7 +2,9 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #00171F;
   color: #007EA7;
+  margin: 0;
 }
+
 #app {
   background-color: #00171F;
 }
@@ -72,4 +74,25 @@ body {
  .media-heading {
    font-size: 24pt;
    color: white;
- }
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.galleryGame {
+  display: flex;
+  width: auto;
+  background-color: #007EA7;
+}
+.galleryGame img {
+  padding: .5vw;
+  height: 320px;
+  width: 227px;
+}
+.gameInfo {
+  overflow: hidden;
+  display: inline;
+}

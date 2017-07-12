@@ -13,7 +13,7 @@ class UserLibrary extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className = 'gallery'>
         {this.props.user.games.length > 0
           ? this.mapGames(this.props.user.games)
           : <h2>No games in user's library.</h2>}

@@ -28,14 +28,19 @@ class LibraryItem extends React.Component {
     })
   }
 
-  renderGame(game) {
-    return <p>{game.name}</p>
-  }
-
   render() {
     return (
-      <div>
-        {this.state.game.name != null ? this.state.game.name : 'Loading'}
+      <div className='galleryGame'>
+        <div clasName='gameCover'>
+            {this.state.game.cover
+              ? <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${this.state.game.cover.cloudinary_id}.jpg`}/>
+              : <p>loading image</p>
+            }
+          </div>
+          <div className='gameInfo'>
+            <h3>{this.state.game.name}</h3>
+          <a href={`#/games/${this.state.game_id}`}>Edit status</a>
+        </div>
       </div>
     )
   }
