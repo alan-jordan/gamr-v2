@@ -86,13 +86,16 @@ body {
   display: flex;
   width: auto;
   background-color: #007EA7;
+  margin: 1vw;
 }
 .galleryGame img {
   padding: .5vw;
-  height: 320px;
-  width: 227px;
+  height: 20vw;
+  width: 15vw;
 }
 .gameInfo {
+  padding: .5vw;
   overflow: hidden;
   display: inline;
+  width: 30vw;
 }

@@ -7,7 +7,7 @@ class UserLibrary extends React.Component {
 
   mapGames (games) {
     return games.map((game) => {
-      return <LibraryItem gameId={game.igdb_game_id} />
+      return <LibraryItem gameStatus = {game} gameId={game.igdb_game_id} />
     })
   }
 

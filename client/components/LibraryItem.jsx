@@ -1,11 +1,13 @@
 import React from 'react'
 import request from 'superagent'
+import moment from 'moment'
 
 class LibraryItem extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       gameId: props.gameId,
+      gameStatus: props.gameStatus,
       game: {},
       error: ''
     }
@@ -38,8 +40,10 @@ class LibraryItem extends React.Component {
             }
           </div>
           <div className='gameInfo'>
-            <h3>{this.state.game.name}</h3>
-          <a href={`#/games/${this.state.game_id}`}>Edit status</a>
+            <p>Name: {this.state.game.name}</p>
+            <p>Purchased: {moment(this.state.gameStatus.user_game_date_bought).format("dddd, MMMM Do YYYY")}</p>
+            <p>Release date: {moment(this.state.game.first_release_date).format("dddd, MMMM Do YYYY")}</p>
+          <a href={`#/games/${this.state.gameStatus.id}`}>Edit status</a>
         </div>
       </div>
     )
