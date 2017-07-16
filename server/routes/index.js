@@ -61,7 +61,7 @@ router.get('/games/:id', (req, res) => {
 
 router.get('/search/:searchStr', (req, res) => {
   request
-    .get(`${url}/games/?fields=name,cover,first_release_date&search=${req.params.searchStr}`)
+    .get(`${url}/games/?fields=name,cover,first_release_date&search=${req.params.searchStr}&order=release_dates.date:desc:min&limit=10`)
     .set('X-Mashape-Key', process.env.MASHAPEKEY)
     .set('Accept', 'application/json')
     .end((error, response) => {

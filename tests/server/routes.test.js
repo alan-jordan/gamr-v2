@@ -77,7 +77,7 @@ test('/games/:id', t => {
 
 test('/search/:searchStr', t => {
   let scope = nock(url)
-    .get(`/games/?fields=name,cover,first_release_date&search=shenmue`)
+    .get(`/games/?fields=name,cover,first_release_date&search=shenmue&order=release_dates.date:desc:min&limit=10`)
     .reply(200, gameExample.searchResult)
 
   return request(t.context.app)
