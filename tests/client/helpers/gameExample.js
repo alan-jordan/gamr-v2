@@ -63,3 +63,39 @@ export const game = [
     pegi: { rating: 5 }
   }
 ]
+export const searchResult = [
+  {
+    id: 11542,
+    name: "Shenmue III",
+    first_release_date: 1546214400000,
+    cover: {
+      url: "//images.igdb.com/igdb/image/upload/t_thumb/iwjykxq134omr9kjp9hz.jpg",
+      cloudinary_id: "iwjykxq134omr9kjp9hz",
+      width: 3840,
+      height: 2100
+    }
+  }, {
+    id: 27422,
+    name: "Shenmue HD Remaster"
+  }, {
+    id: 1218,
+    name: "Shenmue II",
+    first_release_date: 999734400000,
+    cover: {
+      url: "//images.igdb.com/igdb/image/upload/t_thumb/svp0wf0uq81w9xexzq91.jpg",
+      cloudinary_id: "svp0wf0uq81w9xexzq91",
+      width: 651,
+      height: 650
+    }
+  }, {
+    id: 1217,
+    name: "Shenmue",
+    first_release_date: 946425600000,
+    cover: {
+      url: "//images.igdb.com/igdb/image/upload/t_thumb/uf88mcpcyo1cgvu4rs3o.jpg",
+      cloudinary_id: "uf88mcpcyo1cgvu4rs3o",
+      width: 608,
+      height: 599
+    }
+  }
+]

@@ -1,11 +1,12 @@
 import test from 'ava'
 
+import * as actions from '../../client/actions'
 import usersReducer from '../../client/reducers/users'
 import userReducer from '../../client/reducers/user'
-import * as actions from '../../client/actions'
 import gameReducer from '../../client/reducers/game'
-import * as userGames from './helpers/userGamesExample'
 import addGameReducer from '../../client/reducers/addGame'
+import searchGamesReducer from '../../client/reducers/searchGames'
+import * as userGames from './helpers/userGamesExample'
 
 test('default users is empty array', t => {
   const initialState = usersReducer()
@@ -37,4 +38,11 @@ test('addGameVisibleToggle works correctly', t => {
   t.is(initialState, false)
   const nextState = addGameReducer(initialState, actions.addGameVisibleToggle(false))
   t.is(nextState, true)
+})
+
+test('search reducer returns an array of search results', t => {
+  const initialState = searchGamesReducer()
+  const nextState = searchGamesReducer(initialState, actions.setSearchResults(userGames.searchResult))
+  console.log(nextState);
+  t.is(nextState.searchResults.length, 4)
 })
