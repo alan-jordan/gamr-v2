@@ -27,6 +27,16 @@ test('default game is an empty object', t => {
   t.is(typeof(initialState), 'object')
 })
 
+test('SET_GAME_DETAILS', t => {
+  const testAction = {
+    type: 'SET_GAME_DETAILS',
+    game: {id: 1, name: 'This is a game'}
+  }
+  const initialState = gameReducer()
+  const nextState = gameReducer(initialState, testAction)
+  t.not(nextState, {})
+})
+
 test('user games are set', t => {
   const initialState = userReducer()
   const nextState = userReducer(initialState, actions.setUserGames(userGames.userGames))
