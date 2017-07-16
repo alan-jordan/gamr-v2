@@ -78,8 +78,6 @@ export const setGameDetails = (game) => {
   }
 }
 
-export const addGameVisible = (newVisibleState) => {
-  return newVisibleState ?
-  {type: 'TOGGLE_ADD_GAME_VISIBLE'} :
-  {type: 'TOGGLE_ADD_GAME_NOT_VISIBLE'}
+export const addGameVisibleToggle = (newVisibleState) => {
+  return newVisibleState ? {type: 'TOGGLE_ADD_GAME_VISIBLE'} : {type: 'TOGGLE_ADD_GAME_NOT_VISIBLE'}
 }

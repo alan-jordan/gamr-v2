@@ -1,4 +1,4 @@
-function addGameVisible (state = false, action) {
+function addGame (state = false, action = {}) {
   switch (action.type) {
     case 'TOGGLE_ADD_GAME_VISIBLE':
       return true
@@ -9,4 +9,4 @@ function addGameVisible (state = false, action) {
   }
 }
 
-export default addGameVisible
+export default addGame
