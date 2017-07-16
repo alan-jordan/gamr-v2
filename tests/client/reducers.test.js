@@ -7,6 +7,7 @@ import gameReducer from '../../client/reducers/game'
 import addGameReducer from '../../client/reducers/addGame'
 import searchGamesReducer from '../../client/reducers/searchGames'
 import * as userGames from './helpers/userGamesExample'
+import * as gameExample from './helpers/gameExample'
 
 test('default users is empty array', t => {
   const initialState = usersReducer()
@@ -42,7 +43,7 @@ test('addGameVisibleToggle works correctly', t => {
 
 test('search reducer returns an array of search results', t => {
   const initialState = searchGamesReducer()
-  const nextState = searchGamesReducer(initialState, actions.setSearchResults(userGames.searchResult))
-  console.log(nextState);
-  t.is(nextState.searchResults.length, 4)
+  const nextState = searchGamesReducer(initialState, actions.setSearchResults(gameExample.searchResult))
+  t.is(nextState.length, 4)
+  t.is(nextState[0].id, 11542)
 })
