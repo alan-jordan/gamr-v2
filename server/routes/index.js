@@ -59,4 +59,17 @@ router.get('/games/:id', (req, res) => {
     })
 })
 
+router.get('/search/:searchStr', (req, res) => {
+  request
+    .get(`${url}/games/search=${req.params.searchStr}`)
+    .set('X-Mashape-Key', process.env.MASHAPEKEY)
+    .set('Accept', 'application/json')
+    .end((error, response) => {
+      console.log(error);
+      error
+      ? res.status(500).send(`IGDB API error - ${error.message}`)
+      : res.json(response.body)
+    })
+})
+
 module.exports = router

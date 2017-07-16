@@ -74,3 +74,20 @@ test('/games/:id', t => {
       })
     })
 })
+
+test('/search/:searchStr', t => {
+  let scope = nock(url)
+    .get(`/games/?fields=name&search=mario`)
+    .reply(200, {msg: 'Search is working'})
+
+  return request(t.context.app)
+    .get('/api/v1/search/mario')
+    .expect(200)
+    .then((result) => {
+      return new Promise((resolve, reject) => {
+        t.is(result.body.msg, 'Search is working')
+        scope.done()
+        resolve()
+      })
+    })
+})
