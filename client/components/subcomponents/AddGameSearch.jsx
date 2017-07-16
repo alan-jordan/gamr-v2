@@ -3,9 +3,16 @@ import {connect} from 'react-redux'
 
 const AddGameSearch = (props) => {
   return (
-    <div className='addGameSearch'>
-      <p>I will be a search form</p>
-    </div>
+    <form>
+      <div className='row'>
+        <div className='six columns'>
+          <label htmlFor="searchBar">Search for a game</label>
+          <input className="u-full-width" type="text" placeholder="search" id="searchBar" />
+        </div>
+      </div>
+      <br />
+      <input className="button-primary" type="submit" value="Add game" />
+    </form>
   )
 }
 

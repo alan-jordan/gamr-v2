@@ -16,9 +16,9 @@ class AddGame extends React.Component {
         {this.props.addGame
           ? <div>
               <AddGameSearch />
-              <p className='cancel' onClick={(e) => this.addGameToggle(e)}>cancel</p>
+              <a className='button' onClick={(e) => this.addGameToggle(e)}>cancel</a>
             </div>
-          : <h2 onClick={(e) => this.addGameToggle(e)}>Add Game</h2>
+          : <a className='button' onClick={(e) => this.addGameToggle(e)}>Add Game</a>
 }
       </div>
     )
