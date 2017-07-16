@@ -77,15 +77,16 @@ test('/games/:id', t => {
 
 test('/search/:searchStr', t => {
   let scope = nock(url)
-    .get(`/games/?fields=name&search=mario`)
-    .reply(200, {msg: 'Search is working'})
+    .get(`/games/?fields=name,cover,first_release_date&search=shenmue`)
+    .reply(200, gameExample.searchResult)
 
   return request(t.context.app)
-    .get('/api/v1/search/mario')
+    .get('/api/v1/search/shenmue')
     .expect(200)
     .then((result) => {
       return new Promise((resolve, reject) => {
-        t.is(result.body.msg, 'Search is working')
+        t.is(result.body[0].name, 'Shenmue III')
+        t.is(result.body.length, 4)
         scope.done()
         resolve()
       })
