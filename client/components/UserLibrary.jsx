@@ -7,8 +7,8 @@ import AddGame from './AddGame'
 class UserLibrary extends React.Component {
 
   mapGames (games) {
-    return games.map((game) => {
-      return <LibraryItem gameStatus = {game} gameId={game.igdb_game_id} />
+    return games.map((game, i) => {
+      return <LibraryItem key = {i} gameStatus = {game} gameId={game.igdb_game_id} />
     })
   }
 

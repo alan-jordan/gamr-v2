@@ -14,23 +14,20 @@ class AddGame extends React.Component {
   render() {
     return (
       <div className='addGame'>
-        {this.props.addGame ?
-          <div>
-            <p>Blahs</p>
-            <h2 onClick={(e) => this.addGameToggle(e)}>cancel</h2>
-          </div>
+        {this.props.addGame
+          ? <div>
+              <p>Blahs</p>
+              <h2 onClick={(e) => this.addGameToggle(e)}>cancel</h2>
+            </div>
           : <h2 onClick={(e) => this.addGameToggle(e)}>Add Game</h2>
-        }
+}
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
-  return {
-    addGame: state.addGame,
-    user: state.user,
-  }
+  return {addGame: state.addGame, user: state.user}
 }
 
 export default connect(mapStateToProps)(AddGame)
