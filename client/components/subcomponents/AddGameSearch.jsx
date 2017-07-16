@@ -11,7 +11,7 @@ const AddGameSearch = (props) => {
         </div>
       </div>
       <br />
-      <input className="button-primary" type="submit" value="Add game" />
+      {/* <input className="button-primary" type="submit" value="Add game" /> */}
     </form>
   )
 }

@@ -73,6 +73,25 @@ test.cb('getUserGames', t => {
   })
 })
 
+test.cb('getSearchResults', t => {
+  let scope = nock('http://localhost:80')
+    .get('/api/v1/search/shenmue')
+    .reply(200, {searchResults: 'getSearchResults working'})
+
+  action.getSearchResults('shenmue')((actual) => {
+    scope.done()
+    t.is(actual.searchResults, 'getSearchResults working')
+    t.end()
+  })
+})
+
+test('setSearchResults', t => {
+  const results = [{id: 16, name: 'game1'},{id: 17, name: 'game2'}]
+  t.is(action.setSearchResults(results).searchResults.length, 2)
+  t.is(action.setSearchResults(results).searchResults[0].name, 'game1')
+  t.is(action.setSearchResults(results).type, 'SET_SEARCH_RESULTS')
+})
+
 test('addGameVisibleToggle', t => {
   t.is(action.addGameVisibleToggle(true).type, 'TOGGLE_ADD_GAME_NOT_VISIBLE')
   t.is(action.addGameVisibleToggle(false).type, 'TOGGLE_ADD_GAME_VISIBLE')

@@ -81,3 +81,20 @@ export const setGameDetails = (game) => {
 export const addGameVisibleToggle = (newVisibleState) => {
   return newVisibleState ? {type: 'TOGGLE_ADD_GAME_NOT_VISIBLE'} : {type: 'TOGGLE_ADD_GAME_VISIBLE'}
 }
+
+export const getSearchResults = (searchStr) => {
+  return (dispatch) => {
+    request
+      .get(`/api/v1/search/${searchStr}`)
+      .end((err, res) => {
+        err ? dispatch(throwError(err.message)) : dispatch(res.body)
+      })
+  }
+}
+
+export const setSearchResults = (searchResults) => {
+  return {
+    type: 'SET_SEARCH_RESULTS',
+    searchResults
+  }
+}
