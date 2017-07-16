@@ -37,7 +37,7 @@ class LibraryItem extends React.Component {
   render() {
     return (
       <div className='galleryGame'>
-        <div clasName='gameCover'>
+        <div className='gameCover'>
             {this.state.game.cover
               ? <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${this.state.game.cover.cloudinary_id}.jpg`}/>
               : <p>loading image</p>

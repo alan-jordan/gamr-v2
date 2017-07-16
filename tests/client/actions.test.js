@@ -74,6 +74,6 @@ test.cb('getUserGames', t => {
 })
 
 test('addGameVisibleToggle', t => {
-  t.is(action.addGameVisibleToggle(false).type, 'TOGGLE_ADD_GAME_NOT_VISIBLE')
-  t.is(action.addGameVisibleToggle(true).type, 'TOGGLE_ADD_GAME_VISIBLE')
+  t.is(action.addGameVisibleToggle(true).type, 'TOGGLE_ADD_GAME_NOT_VISIBLE')
+  t.is(action.addGameVisibleToggle(false).type, 'TOGGLE_ADD_GAME_VISIBLE')
 })

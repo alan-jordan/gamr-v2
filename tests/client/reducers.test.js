@@ -35,6 +35,6 @@ test('user games are set', t => {
 test('addGameVisibleToggle works correctly', t => {
   const initialState = addGameReducer()
   t.is(initialState, false)
-  const nextState = addGameReducer(initialState, actions.addGameVisibleToggle(true))
+  const nextState = addGameReducer(initialState, actions.addGameVisibleToggle(false))
   t.is(nextState, true)
 })
