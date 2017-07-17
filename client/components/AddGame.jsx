@@ -12,10 +12,10 @@ class AddGame extends React.Component {
 
   render() {
     return (
-      <div className='addGame'>
+      <div className='addGameForm'>
         {this.props.addGame
           ? <div>
-              <AddGameSearch />
+              <AddGameSearch searchGames={this.props.searchGames}/>
               <a className='button' onClick={(e) => this.addGameToggle(e)}>cancel</a>
             </div>
           : <a className='button' onClick={(e) => this.addGameToggle(e)}>Add Game</a>

@@ -100,6 +100,15 @@ body {
   width: 30vw;
   background-color: #008EA8;
 }
+
 .addGame {
-  margin: 1vw;
+  background-color: white;
+}
+.addGameResult li:hover {
+  background: #ccc !important;
+  text-decoration: none !important;
+}
+
+.addGameResult a:active {
+  text-decoration: none;
 }
