@@ -59,3 +59,10 @@ test('search reducer returns an array of search results', t => {
   t.is(nextState.searchResults.length, 4)
   t.is(nextState.searchResults[0].id, 11542)
 })
+
+test('set search term', t => {
+  const initialState = searchGamesReducer()
+  const nextState = searchGamesReducer(initialState, actions.setSearchTerm('searching'))
+  t.not(nextState, {})
+  t.is(nextState.searchTerm, 'searching')
+})
