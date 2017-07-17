@@ -98,3 +98,17 @@ export const setSearchResults = (searchResults) => {
     searchResults
   }
 }
+
+export const getSearchTerm = (searchStr) => {
+  return (dispatch) => {
+    dispatch(setSearchTerm(searchStr)),
+    dispatch(getSearchResults(searchStr))
+  }
+}
+
+export const setSearchTerm = (searchStr) => {
+  return {
+    type: 'SET_SEARCH_TERM',
+    searchTerm: searchStr
+  }
+}

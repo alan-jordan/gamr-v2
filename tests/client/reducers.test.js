@@ -54,6 +54,6 @@ test('addGameVisibleToggle works correctly', t => {
 test('search reducer returns an array of search results', t => {
   const initialState = searchGamesReducer()
   const nextState = searchGamesReducer(initialState, actions.setSearchResults(gameExample.searchResult))
-  t.is(nextState.length, 4)
-  t.is(nextState[0].id, 11542)
+  t.is(nextState.searchResults.length, 4)
+  t.is(nextState.searchResults[0].id, 11542)
 })

@@ -96,3 +96,8 @@ test('addGameVisibleToggle', t => {
   t.is(action.addGameVisibleToggle(true).type, 'TOGGLE_ADD_GAME_NOT_VISIBLE')
   t.is(action.addGameVisibleToggle(false).type, 'TOGGLE_ADD_GAME_VISIBLE')
 })
+
+test('setSearchTerm', t => {
+  t.is(action.setSearchTerm('searching').type, 'SET_SEARCH_TERM')
+  t.is(action.setSearchTerm('searching').searchTerm, 'searching')
+})
