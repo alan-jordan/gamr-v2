@@ -44,6 +44,13 @@ test('user games are set', t => {
   t.is(nextState.games[2].igdb_game_id, 18)
 })
 
+test('set user reducer', t => {
+  const initialState = userReducer()
+  const nextState = userReducer(initialState, actions.setUser({id: 1, name: 'user'}))
+  t.is(nextState.user.id, 1)
+  t.is(nextState.user.name, 'user')
+})
+
 test('addGameVisibleToggle works correctly', t => {
   const initialState = addGameReducer()
   t.is(initialState, false)
