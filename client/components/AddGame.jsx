@@ -26,7 +26,7 @@ class AddGame extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {addGame: state.addGame, user: state.user}
+  return {addGame: state.addGame, user: state.user, searchGames: state.searchGames}
 }
 
 export default connect(mapStateToProps)(AddGame)
