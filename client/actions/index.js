@@ -87,7 +87,7 @@ export const getSearchResults = (searchStr) => {
     request
       .get(`/api/v1/search/${searchStr}`)
       .end((err, res) => {
-        err ? dispatch(throwError(err.message)) : dispatch(res.body)
+        err ? dispatch(throwError(err.message)) : dispatch(setSearchResults(res.body))
       })
   }
 }
@@ -95,7 +95,7 @@ export const getSearchResults = (searchStr) => {
 export const setSearchResults = (searchResults) => {
   return {
     type: 'SET_SEARCH_RESULTS',
-    searchResults
+    searchResults: searchResults
   }
 }
 

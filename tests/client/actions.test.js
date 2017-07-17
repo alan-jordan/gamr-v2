@@ -2,6 +2,7 @@ import test from 'ava'
 import nock from 'nock'
 
 import * as action from '../../client/actions'
+import * as gameExample from './helpers/gameExample'
 
 test.cb('fetchLatestUsers', t => {
   nock('http://localhost:80')
@@ -76,11 +77,12 @@ test.cb('getUserGames', t => {
 test.cb('getSearchResults', t => {
   let scope = nock('http://localhost:80')
     .get('/api/v1/search/shenmue')
-    .reply(200, {searchResults: 'getSearchResults working'})
+    .reply(200, gameExample.searchResult)
 
   action.getSearchResults('shenmue')((actual) => {
     scope.done()
-    t.is(actual.searchResults, 'getSearchResults working')
+    t.is(actual.searchResults.length, 4)
+    t.is(actual.type, 'SET_SEARCH_RESULTS')
     t.end()
   })
 })
