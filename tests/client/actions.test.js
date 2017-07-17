@@ -74,6 +74,18 @@ test.cb('getUserGames', t => {
   })
 })
 
+test.cb('getGameDetails', t => {
+  let scope = nock('http://localhost:80')
+    .get('/api/v1/games/16')
+    .reply(200, gameExample.game)
+
+  action.getGameDetails(16)((actual) => {
+    scope.done()
+    t.is(actual.game[0].id, 16)
+    t.end()
+  })
+})
+
 test.cb('getSearchResults', t => {
   let scope = nock('http://localhost:80')
     .get('/api/v1/search/shenmue')
