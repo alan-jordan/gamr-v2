@@ -1,4 +1,5 @@
 TravisCI Status - [![Build Status](https://travis-ci.org/alan-jordan/gamr-v2.svg?branch=master)](https://travis-ci.org/alan-jordan/gamr-v2)
+Istanbul Test Coverage - [![Coverage Status](https://coveralls.io/repos/github/alan-jordan/gamr-v2/badge.svg?branch=master)](https://coveralls.io/github/alan-jordan/gamr-v2?branch=master)
 
 # gamr
 I built gamr as part of my personal project while studying at Enspiral Devacademy. I enjoyed it and want to build on it as I learn new technologies.
