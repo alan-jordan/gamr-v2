@@ -1,7 +1,6 @@
 import test from 'ava'
 import request from 'supertest'
 import nock from 'nock'
-import sinon from 'sinon'
 
 import * as gameExample from './helpers/gameExample'
 const createServer = require('../../server/server')
@@ -21,32 +20,6 @@ test('GET /users/', t => {
       })
     })
 })
-
-test.cb('Get /users handles errors', t => {
-  request (t.context.app)
-    .get('/api/v1/users')
-    .expect(200)
-    .end((err, res) => {
-      err ? console.log(err) : console.log(res)
-    })
-})
-
-// test('/search/:searchStr', t => {
-//   let scope = nock('http://localhost:80')
-//     .get(`/api/v1/users`)
-//     .reply(500, {msg: 'error'})
-//
-//   return request(t.context.app)
-//     .get('/api/v1/users')
-//     .expect(500)
-//     .then((result) => {
-//       return new Promise((resolve, reject) => {
-//         console.log(result);
-//         scope.done()
-//         resolve()
-//       })
-//     })
-// })
 
 test('GET /users/:id', t => {
   return request(t.context.app)
