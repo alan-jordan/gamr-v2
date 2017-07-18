@@ -1,10 +1,10 @@
 import test from 'ava'
 import request from 'supertest'
 import nock from 'nock'
+import sinon from 'sinon'
 
 import * as gameExample from './helpers/gameExample'
-import * as userExample from './helpers/userExample'
-var createServer = require('../../server/server')
+const createServer = require('../../server/server')
 const url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
 
 var configureDatabase = require('./helpers/database-config')
@@ -19,6 +19,15 @@ test('GET /users/', t => {
         t.is(result.body.length, 4)
         resolve()
       })
+    })
+})
+
+test.cb('Get /users handles errors', t => {
+  request (t.context.app)
+    .get('/api/v1/users')
+    .expect(200)
+    .end((err, res) => {
+      err ? console.log(err) : console.log(res)
     })
 })
 

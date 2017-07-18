@@ -1,5 +1,3 @@
-// import bcrypt from 'bcryptjs'
-
 function getUsers (connection) {
   return connection('users')
     .select()
