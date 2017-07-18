@@ -51,6 +51,7 @@
     "jazzy": "^0.3.18",
     "jsx-loader": "^0.13.2",
     "nock": "^9.0.13",
+    "node-mocks-http": "^1.6.4",
     "nodemon": "^1.11.0",
     "nyc": "^11.0.3",
     "react-test-renderer": "^15.5.4",

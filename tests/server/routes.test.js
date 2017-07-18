@@ -1,8 +1,8 @@
 import test from 'ava'
 import request from 'supertest'
 import nock from 'nock'
-
 import * as gameExample from './helpers/gameExample'
+
 const createServer = require('../../server/server')
 const url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
 

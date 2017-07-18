@@ -1,6 +1,8 @@
 var express = require('express')
-var router = express.Router()
-var request = require('superagent')
+var errors = require('../lib/errors')
+
+const request = require('superagent')
+const router = express.Router()
 
 var usersDb = require('../db/users')
 
@@ -9,21 +11,21 @@ var url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
 
 router.get('/users', (req, res) => {
   usersDb.getUsers(req.app.get('connection'))
-    .then(function (users) {
+    .then((users) => {
       res.json(users)
     })
-    .catch(function (err) {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
+    .catch((err) => {
+      errors.handleRouteError(err)
     })
 })
 
 router.get('/users/:id', (req, res) => {
   usersDb.getUserById(req.params.id, req.app.get('connection'))
-    .then(function (user) {
+    .then((user) => {
       res.json(user)
     })
-    .catch(function (err) {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
+    .catch((err) => {
+      errors.handleRouteError(err)
     })
 })
 
@@ -33,7 +35,7 @@ router.get('/users/:id/games', (req, res) => {
       res.json(games)
     })
     .catch((err) => {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
+      errors.handleRouteError(err)
     })
 })
 
@@ -42,8 +44,8 @@ router.get('/latestusers', (req, res) => {
     .then((users) => {
       res.json(users)
     })
-    .catch(function (err) {
-      res.status(500).send('DATABASE ERROR: ' + err.message)
+    .catch((err) => {
+      errors.handleRouteError(err)
     })
 })
 
@@ -54,7 +56,7 @@ router.get('/games/:id', (req, res) => {
     .set('Accept', 'application/json')
     .end((error, response) => {
       error
-      ? res.status(500).send('DATABASE ERROR: ' + error.message)
+      ? errors.handleRouteError(error)
       : res.json(response.body)
     })
 })
@@ -66,7 +68,7 @@ router.get('/search/:searchStr', (req, res) => {
     .set('Accept', 'application/json')
     .end((error, response) => {
       error
-      ? res.status(500).send(`IGDB API error - ${error.message}`)
+      ? errors.handleRouteError(error)
       : res.json(response.body)
     })
 })
