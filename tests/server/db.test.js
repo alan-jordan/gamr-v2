@@ -1,4 +1,5 @@
-var test = require('ava')
+import sinon from 'sinon'
+import test from 'ava'
 
 var configureDatabase = require('./helpers/database-config')
 configureDatabase(test)
