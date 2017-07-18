@@ -1,6 +1,6 @@
 // import bcrypt from 'bcryptjs'
 
-function getUsers (connection, callback) {
+function getUsers (connection) {
   return connection('users')
     .select()
     .on('query-error', (error, obj) => {
