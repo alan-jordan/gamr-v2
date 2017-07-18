@@ -16,6 +16,21 @@ test('getUsers gets all users', t => {
     })
 })
 
+test('getUsers handles errors', t => {
+
+  const expectedError = new Error('Error message')
+  let getUsers = sinon.stub(usersDb, 'getUsers')
+  getUsers.throws(expectedError)
+  let callback = sinon.spy()
+
+  const error = t.throws(() => {
+    usersDb.getUsers(t.context.connection, callback)
+  }, Error)
+
+  t.is(error.message, 'Error message')
+  getUsers.restore()
+})
+
 test('getUserById gets a user by its ID', t => {
   return usersDb.getUserById(1, t.context.connection)
     .then((result) => {

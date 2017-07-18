@@ -3,6 +3,7 @@ import request from 'supertest'
 import nock from 'nock'
 
 import * as gameExample from './helpers/gameExample'
+import * as userExample from './helpers/userExample'
 var createServer = require('../../server/server')
 const url = 'https://igdbcom-internet-game-database-v1.p.mashape.com'
 
@@ -20,6 +21,23 @@ test('GET /users/', t => {
       })
     })
 })
+
+// test('/search/:searchStr', t => {
+//   let scope = nock('http://localhost:80')
+//     .get(`/api/v1/users`)
+//     .reply(500, {msg: 'error'})
+//
+//   return request(t.context.app)
+//     .get('/api/v1/users')
+//     .expect(500)
+//     .then((result) => {
+//       return new Promise((resolve, reject) => {
+//         console.log(result);
+//         scope.done()
+//         resolve()
+//       })
+//     })
+// })
 
 test('GET /users/:id', t => {
   return request(t.context.app)
