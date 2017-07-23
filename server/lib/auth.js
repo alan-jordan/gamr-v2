@@ -35,12 +35,10 @@ function issueJwt(req, res, next) {
 
 function verify(email, password, done) {
   users.getByEmail(email, req.app.get('connection'))
-    .then(users => {
-    if (users.length === 0) {
+    .then(user => {
+    if (user.length === 0) {
       return done(null, false, {message: 'Unrecognised user.'})
     }
-
-    const user = users[0]
 
     if (!crypto.verifyUser(user, password)) {
       return done(null, false, {message: 'Incorrect password.'})
