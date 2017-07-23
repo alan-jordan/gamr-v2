@@ -4,6 +4,7 @@ import moment from 'moment'
 
 class LibraryItem extends React.Component {
   constructor(props) {
+    console.log(props);
     super(props)
     this.state = {
       gameId: props.gameId,
@@ -39,18 +40,10 @@ class LibraryItem extends React.Component {
       <div className='galleryGame'>
         <div className='gameCover'>
             {this.state.game.cover
-              ? <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${this.state.game.cover.cloudinary_id}.jpg`}/>
+              ? <a href={`/#/users/${this.state.gameStatus.user_id}/games/${this.state.gameStatus.igdb_game_id}`}><img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${this.state.game.cover.cloudinary_id}.jpg`}/></a>
               : <p>loading image</p>
             }
           </div>
-          <div className='gameInfo'>
-            <p>Name: {this.state.game.name}</p>
-            <p>Purchased: {moment(this.state.gameStatus.user_game_date_bought).format("dddd, MMMM Do YYYY")}</p>
-            <p>Release date: {moment(this.state.game.first_release_date).format("dddd, MMMM Do YYYY")}</p>
-            <p>Owned on:</p>
-            <p>Format: {this.checkFormat(this.state.gameStatus.user_game_format)}</p>
-          <a href={`#/games/${this.state.gameStatus.id}`}>Edit status</a>
-        </div>
       </div>
     )
   }

@@ -203,3 +203,6 @@ body {
   color: #003459;
   text-decoration: none;
 }
+.addGameForm {
+  color: red;
+}
