@@ -4,7 +4,7 @@ const NewUsers = (props) => {
   function renderUsers () {
     return props.users.map((user, i) => {
       return (
-        <div className='newUserProfile'>
+        <div key={i} className='newUserProfile'>
           <div className='newUserImage'>
             <img src='http://via.placeholder.com/50x50' />
           </div>

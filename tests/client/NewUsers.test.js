@@ -8,6 +8,6 @@ import NewUsers from '../../client/components/NewUsers'
 test('display a list of users', t => {
   const users = [{user_username: 'eljordy'}, {user_username: 'itsame'}]
   const wrapper = mount(<NewUsers users={users} />)
-  t.is(wrapper.find('.newUsers').children().length, 2)
-  t.is(wrapper.find('.newUsers').children().first().text(), 'eljordy')
+  t.is(wrapper.find('.newUserInfo').children().length, 2)
+  t.is(wrapper.find('.newUserInfo').children().first().text(), 'eljordy')
 })
