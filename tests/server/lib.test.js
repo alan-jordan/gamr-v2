@@ -2,7 +2,7 @@ import test from 'ava'
 
 const errors = require('../../server/lib/errors')
 const httpMocks = require('node-mocks-http')
-
+const crypto = require('../../server/lib/crypto')
 
 test.cb('Handle errors in GET /users', t => {
   let request = httpMocks.createRequest({
@@ -40,4 +40,16 @@ test.cb('Handle errors in GET /users', t => {
     t.end()
   }
   errors.handleRouteError(null, request, response, next)
+})
+
+test('crypto verifyUser', t => {
+  let user = {
+    'user_id': 2,
+    'user_email': 'mario@gmail.com',
+    'hash': crypto.getHash('password')
+  }
+  const passAuth = crypto.verifyUser(user, 'password')
+  t.is(passAuth, true)
+  const failAuth = crypto.verifyUser(user, 'wrongpassword')
+  t.is(failAuth, false)
 })

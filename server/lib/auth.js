@@ -5,6 +5,7 @@ const crypto = require('./crypto')
 const users = require('../db/users')
 
 let connection = null
+
 function createToken(user, secret) {
   return jwt.sign(user, secret, {
     expiresIn: 60 * 60 * 24
@@ -19,6 +20,7 @@ function handleError(err, req, res, next) {
 }
 
 function issueJwt(req, res, next) {
+  connection = req.app.get('connection')
   passport.authenticate('local', (err, user, info) => {
     if (err) {
       return res.status(500).json({message: 'Authentication failed due to a server error.'})
@@ -34,7 +36,7 @@ function issueJwt(req, res, next) {
 }
 
 function verify(email, password, done) {
-  users.getByEmail(email, req.app.get('connection'))
+  users.getByEmail(email, connection)
     .then(user => {
     if (user.length === 0) {
       return done(null, false, {message: 'Unrecognised user.'})
