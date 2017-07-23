@@ -5,6 +5,7 @@ import Header from './Header'
 import Home from './Home'
 import UserLibraryContainer from '../containers/UserLibraryContainer'
 import Footer from './Footer'
+import LoginContainer from '../containers/LoginContainer'
 
 export default class App extends React.Component {
   constructor (props) {
@@ -21,6 +22,7 @@ export default class App extends React.Component {
           <Header />
           <Route path='/' exact component={Home} />
           <Route path='/users/:id/library' exact component={UserLibraryContainer} />
+          <Route path ='/login' exact component={LoginContainer} />
           <Footer />
         </div>
       </Router>
