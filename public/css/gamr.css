@@ -22,7 +22,6 @@ body {
   padding: 1vh;
   border-bottom: solid #E05151;
   background-color: #D9411E;
-  margin-bottom: 2vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -51,21 +50,36 @@ body {
    background-image: url('/images/site/frontPageCollage.jpg');
    color: #FFFFFF;
    height: 100%;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
 }
 
 .introText {
   padding: 10vh;
+  flex-basis: 60%;
 }
 .newUsers {
   /*background-color: #A9B7C0;*/
 }
 .newUsers li {
   list-style-type: none;
-  display: inline;
-  margin: 1vh;
+  /*display: inline;*/
+  /*margin: 1vh;*/
 }
 .newUsers a {
   color: #75A3D1;
+}
+
+.newUserProfile {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 4vh;
+  /*padding: 45px;*/
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .footer {

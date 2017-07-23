@@ -18,8 +18,8 @@ export default class Home extends React.Component {
             <h2>Track time spent.</h2>
             <h2>Connect with other gamrs.</h2>
           </div>
+          { <FrontPageContainer /> }
         </div>
-        { <FrontPageContainer /> }
       </div>
     )
   }
