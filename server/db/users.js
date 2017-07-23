@@ -21,10 +21,19 @@ function getUserGames (id, connection) {
     .where('user_id', id)
 }
 
+function getByEmail (email, connection) {
+  return connection('user_auth')
+    .where('user_email', email)
+    .first()
+    .on('query-error', (err, obj) => {
+      return new Error(`Error: ${err}`)
+    })
+}
+
 module.exports = {
   getUsers,
   getUserById,
   getNumUsers,
-  getUserGames
-  // checkPassword
+  getUserGames,
+  getByEmail
 }

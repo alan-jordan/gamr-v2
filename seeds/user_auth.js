@@ -1,9 +1,9 @@
 const getHash = require('../server/lib/crypto').getHash
 
 exports.seed = function (knex, Promise) {
-  return knex('users').del()
+  return knex('user_auth').del()
     .then(function () {
-      return knex('users').insert([
+      return knex('user_auth').insert([
         {
           'user_id': 1,
           'user_email': 'alanpjordan@gmail.com',

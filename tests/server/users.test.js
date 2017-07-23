@@ -38,6 +38,29 @@ test('getUserById gets a user by its ID', t => {
     })
 })
 
+test('getByEmail', t => {
+  return usersDb.getByEmail('sonic@gmail.com', t.context.connection)
+  .then((result) => {
+    return new Promise((resolve, reject) => {
+      t.is(result.user_id, 3)
+      resolve()
+    })
+  })
+})
+
+test('getByEmail handles errors', t => {
+  const getByEmail = sinon.stub(usersDb, 'getByEmail')
+  getByEmail.throws(new Error('Error message'))
+
+  const error = t.throws(() => {
+    usersDb.getByEmail(t.context.connection)
+  }, Error)
+
+  t.is(error.message, 'Error message')
+  getByEmail.restore()
+})
+
+
 test('getNumUsers gets 2 gamrs', t => {
   return usersDb.getNumUsers(2, t.context.connection)
     .then((result) => {
