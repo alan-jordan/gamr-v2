@@ -2,11 +2,11 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: light;
   background-color: #333333;
-  color: #007EA7;
+  color: #333333;
   margin: 0;
 }
 
-.container {
+#APP {
   background-color: #333333;
 }
 .colors {
@@ -23,29 +23,33 @@ body {
   border-bottom: solid #E05151;
   background-color: #D9411E;
   margin-bottom: 2vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .header a {
   margin-left: 1vw;
   margin-right: 1vw;
-  color: #FFFFFF;
+  color: #FFD452;
   text-decoration: none;
   font-weight: bold;
   font-size: 48px;
 }
 .header .logo {
+  flex-basis: 85%;
+}
+.header .loginHeader {
+  /*flex-basis: 15%;*/
 }
 
 .header a:hover {
   color: #333333;
 }
 
-.loginHeader {
-  /*float: right;*/
-}
 
 .intro {
    background-image: url('/images/site/frontPageCollage.jpg');
-   color: white;
+   color: #FFFFFF;
    height: 100%;
 }
 
@@ -60,11 +64,14 @@ body {
   display: inline;
   margin: 1vh;
 }
+.newUsers a {
+  color: #75A3D1;
+}
 
 .footer {
   padding: 1vh;
   border-top: solid #E05151;
-  color: white;
+  color: #FFD452;
   background-color: #D9411E;
   height: 10vh;
 }
