@@ -33,7 +33,6 @@ test('getUserById gets a user by its ID', t => {
     .then((result) => {
       return new Promise((resolve, reject) => {
         t.is(result.user_username, 'eljordy')
-        t.is(result.user_email, 'alanpjordan@gmail.com')
         resolve()
       })
     })

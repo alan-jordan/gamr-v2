@@ -19,7 +19,7 @@ function handleError(err, req, res, next) {
 }
 
 function issueJwt(req, res, next) {
-  connection = req.app.get('db')
+  connection = req.app.get('connection')
   passport.authenticate('local', (err, user, info) => {
     if (err) {
       return res.status(500).json({message: 'Authentication failed due to a server error.'})
