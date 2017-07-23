@@ -6,11 +6,17 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className='loginForm'>
-        I'm a login form
+        <form>
+          <label>E-mail</label>
+          <input className='formInput' name='email' type='email' />
+          <label>Passport</label>
+          <input className='formInput' name='password' type='password' />
+          <br />
+          <input type='submit' value='Login' />
+        </form>
       </div>
     )
   }
-
 }
 
 const mapStateToProps = (state) => {

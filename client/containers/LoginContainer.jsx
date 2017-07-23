@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
+import LoginForm from '../components/LoginForm'
 
 class LoginContainer extends React.Component {
   componentDidMount () {
@@ -8,7 +9,9 @@ class LoginContainer extends React.Component {
 
   render () {
     return (
-      <div>I'm a login container</div>
+      <div>
+        <LoginForm />
+      </div>
     )
   }
 }
