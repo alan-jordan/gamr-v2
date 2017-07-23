@@ -5,8 +5,8 @@ body {
   margin: 0;
 }
 
-#app {
-  background-color: #00171F;
+.container {
+  background-color: #CCC;
 }
 .colors {
   /*
@@ -19,6 +19,23 @@ body {
 }
 .header {
   padding: 1vh;
+  border-bottom: solid #007EA7;
+  background-color: #003459;
+  margin-bottom: 2vh;
+}
+.header a {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  color: #FFFFFF;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.header a:hover {
+  color: #CCC;
+}
+.loginHeader {
+  float: right;
 }
 
 .intro {
@@ -110,5 +127,48 @@ body {
 }
 
 .addGameResult a:active {
+  text-decoration: none;
+}
+
+.loginForm {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 4vh;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.loginForm form {
+  margin: auto;
+  text-align: center;
+}
+
+.loginForm input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.loginForm input[type='email'], textarea {
+  background-color: #f2f2f2;
+}
+.loginForm input[type='password'], textarea {
+  background-color: #f2f2f2;
+}
+
+.loginForm .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.loginForm .message a {
+  color: #003459;
   text-decoration: none;
 }

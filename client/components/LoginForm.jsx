@@ -5,16 +5,20 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div className='loginForm'>
-        <form>
-          <label>E-mail</label>
-          <input className='formInput' name='email' type='email' />
-          <label>Passport</label>
-          <input className='formInput' name='password' type='password' />
-          <br />
-          <input type='submit' value='Login' />
-        </form>
+      <div className='row'>
+        <div className='four columns offset-by-four'>
+          <form className='loginForm'>
+            <input className='formInput' placeholder='email' name='email' type='email' />
+            <input className='formInput' placeholder='password' name='password' type='password' />
+            <br />
+            <br />
+            <input type='submit' value='Login' />
+            <p className="message">Not registered? <a href="#">Create an account</a></p>
+          </form>
+        </div>
       </div>
+
+
     )
   }
 }

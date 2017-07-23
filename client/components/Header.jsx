@@ -2,10 +2,13 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div className='header'>
-      <a className='logo' href='/'>gamr</a>
-      <a className='login' href='/#/login'>login</a>
-      <a className='register' href='/'>register</a>
+    <div className='row header'>
+      <div className='ten columns'>
+        <a  href='/'>gamr</a>
+      </div>
+      <div className='two columns'>
+        <a className='loginHeader' href='/#/login'>login</a>
+      </div>
     </div>
   )
 }
