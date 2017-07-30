@@ -20,9 +20,7 @@ export const fetchLatestUsers = () => {
   return (dispatch) => {
     request
       .get('/api/v1/latestusers')
-      .end((err, res) => {
-        err ? dispatch(throwError(err.message)) : dispatch(receiveNewUsers(res.body))
-      })
+      .end((err, res) => err ? dispatch(throwError(err.message)) : dispatch(receiveNewUsers(res.body)))
   }
 }
 
@@ -37,9 +35,7 @@ export const fetchUser = (userId) => {
   return (dispatch) => {
     request
       .get(`/api/v1/users/${userId}`)
-      .end((err, res) => {
-        err ? dispatch(throwError(err.message)) : dispatch(setUser(res.body))
-      })
+      .end((err, res) => err ? dispatch(throwError(err.message)) : dispatch(setUser(res.body)))
   }
 }
 
@@ -47,10 +43,7 @@ export const getUserGames = (userId) => {
   return (dispatch) => {
     request
       .get(`/api/v1/users/${userId}/games`)
-      .end((err, res) => {
-        err ? dispatch(throwError(err.message))
-        : dispatch(setUserGames(res.body))
-      })
+      .end((err, res) => err ? dispatch(throwError(err.message)) : dispatch(setUserGames(res.body)))
   }
 }
 
@@ -65,9 +58,7 @@ export const getGameDetails = (game) => {
   return (dispatch) => {
     request
       .get(`/api/v1/games/${game}`)
-      .end((err, res) => {
-        err ? dispatch(throwError(err.message)) : dispatch(setGameDetails(res.body))
-      })
+      .end((err, res) => err ? dispatch(throwError(err.message)) : dispatch(setGameDetails(res.body)))
   }
 }
 
@@ -86,9 +77,7 @@ export const getSearchResults = (searchStr) => {
   return (dispatch) => {
     request
       .get(`/api/v1/search/${searchStr}`)
-      .end((err, res) => {
-        err ? dispatch(throwError(err.message)) : dispatch(setSearchResults(res.body))
-      })
+      .end((err, res) => err ? dispatch(throwError(err.message)) : dispatch(setSearchResults(res.body)))
   }
 }
 
