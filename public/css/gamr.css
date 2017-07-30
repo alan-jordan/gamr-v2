@@ -206,3 +206,7 @@ body {
 .addGameForm {
   color: red;
 }
+
+.notFound {
+  color: #D9411E;
+}
