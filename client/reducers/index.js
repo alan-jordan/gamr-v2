@@ -5,6 +5,7 @@ import user from './user'
 import game from './game'
 import addGame from './addGame'
 import searchGames from './searchGames'
+import auth from './auth'
 
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
   users,
   user,
   addGame,
-  searchGames
+  searchGames,
+  auth
 })

@@ -3,11 +3,15 @@ import {connect} from 'react-redux'
 
 class LoginForm extends React.Component {
 
+  handleSubmit(e) {
+    e.preventDefault()
+  }
+
   render() {
     return (
       <div className='row'>
         <div className='four columns offset-by-four'>
-          <form className='loginForm'>
+          <form className='loginForm' onSubmit={this.handleSubmit.bind(this)}>
             <input className='formInput' placeholder='email' name='email' type='email' />
             <input className='formInput' placeholder='password' name='password' type='password' />
             <br />
