@@ -1,16 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-// import { loginUser } from '../actions/auth'
+import { loginUser } from '../actions/auth'
 
 class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    const creds = {
-      email: e.target.email.value,
-      password: e.target.password.value
-    }
-    // this.props.dispatch(loginUser(creds))
+    this.props.dispatch(loginUser({email: e.target.email.value, passport: e.target.password.value}))
   }
 
   render() {
