@@ -10,6 +10,7 @@ const auth = require('./lib/auth')
 var users = require('./routes/users')
 var games = require('./routes/games')
 var search = require('./routes/search')
+var authroutes = require('./routes/auth')
 
 const corsOptions = {
   origin: true,
@@ -24,6 +25,7 @@ app.use(cors(corsOptions))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '../public')))
 
+app.use('/api/v1', authroutes)
 app.use('/api/v1', users)
 app.use('/api/v1', games)
 app.use('/api/v1', search)
