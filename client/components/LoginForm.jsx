@@ -1,11 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { loginUser } from '../actions/auth'
 
 class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    // console.log(e.target.password.value)
+    this.props.dispatch(loginUser(e.target.email.value, e.target.password.value))
   }
+
 
   render() {
     return (
@@ -28,7 +32,7 @@ class LoginForm extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return {login: state.login}
+  return {auth: state.auth}
 }
 
 export default connect(mapStateToProps)(LoginForm)
