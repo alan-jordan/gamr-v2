@@ -28,8 +28,9 @@ app.use('/api/v1', users)
 app.use('/api/v1', games)
 app.use('/api/v1', search)
 
+passport(app)
+
 module.exports = (connection) => {
   app.set('connection', connection)
-  passport(app)
   return app
 }

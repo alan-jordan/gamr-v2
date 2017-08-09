@@ -5,7 +5,6 @@ const router = express.Router()
 require('dotenv').config()
 
 router.post('/login', (req, res) => {
-  console.log(req.body)
   passport.authenticate('local', {
     successRedirect: '/#/win',
     failureRedirect: '/#/lose',
