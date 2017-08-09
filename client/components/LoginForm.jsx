@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { loginUser } from '../actions/auth'
+// import { loginUser } from '../actions/auth'
 
 class LoginForm extends React.Component {
 
@@ -10,7 +10,7 @@ class LoginForm extends React.Component {
       email: e.target.email.value,
       password: e.target.password.value
     }
-    this.props.dispatch(loginUser(creds))
+    // this.props.dispatch(loginUser(creds))
   }
 
   render() {
