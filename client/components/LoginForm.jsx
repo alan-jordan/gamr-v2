@@ -6,10 +6,12 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    // console.log(e.target.password.value)
-    this.props.dispatch(loginUser(e.target.email.value, e.target.password.value))
+    const creds = {
+      email: e.target.email.value,
+      password: e.target.password.value
+    }
+    this.props.dispatch(loginUser(creds))
   }
-
 
   render() {
     return (

@@ -24,13 +24,13 @@ app.use(cors(corsOptions))
 
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, '../public')))
+app.use(passport.initialize())
 
 app.use('/api/v1', users)
 app.use('/api/v1', games)
 app.use('/api/v1', search)
 app.use('/api/v1', authroutes)
 
-app.use(passport.initialize())
 passport.use(new LocalStrategy(auth.verify))
 
 module.exports = (connection) => {

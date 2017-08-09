@@ -27,10 +27,10 @@ export function loginError () {
   }
 }
 
-export function loginUser (email, password, callback) {
+export function loginUser (creds, callback) {
   return (dispatch) => {
     dispatch(requestLogin())
-    return request('post', '/login', email)
+    return request('post', '/login', creds)
       .then((response) => {
         const userInfo = saveUserToken(response.body.token)
         dispatch(receiveLogin(userInfo))

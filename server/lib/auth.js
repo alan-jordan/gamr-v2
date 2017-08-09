@@ -20,6 +20,7 @@ function handleError(err, req, res, next) {
 }
 
 function issueJwt(req, res, next) {
+
   connection = req.app.get('connection')
   passport.authenticate('local', (err, user, info) => {
     if (err) {
@@ -36,6 +37,7 @@ function issueJwt(req, res, next) {
 }
 
 function verify(email, password, done) {
+
   users.getByEmail(email, connection)
     .then(user => {
     if (user.length === 0) {
