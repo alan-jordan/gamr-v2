@@ -33,7 +33,7 @@
   "author": "EDA",
   "license": "ISC",
   "devDependencies": {
-    "ava": "^0.19.1",
+    "ava": "^5.1.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.1",
@@ -82,7 +82,7 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
     "sodium": "^2.0.1",
-    "sqlite3": "^3.1.8",
+    "sqlite3": "^3.1.13",
     "standard": "^10.0.2",
     "superagent": "^2.2.0"
   }
